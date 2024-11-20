@@ -15,9 +15,7 @@ MongoClient.connect(process.env.RESTREVIEWS_DB_URI, {
     console.error(err.stack);
     process.exit(1);
   })
-  // .then(() => {
-  //     console.log(`Database connected on port: ${port}`)
-  // })
+
   .then(async (client) => {
     await RestaurantsDAO.injectDB(client);
     app.listen(port, () => {
@@ -25,17 +23,4 @@ MongoClient.connect(process.env.RESTREVIEWS_DB_URI, {
     });
   });
 
-// const express = require('express')
 
-// require('dotenv').config()
-// const app = express()
-
-// const port = process.env.PORT || 8000
-
-// app.get('/', (req, res) => {
-//   res.send('Hello World')
-// })
-
-// app.listen(port, () => {
-//     console.log(`Listening on port `)
-// })
